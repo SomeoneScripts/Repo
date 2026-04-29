@@ -18,7 +18,6 @@ function Settings:Save()
         local data: string = HttpService:JSONEncode(self.Data)
         writefile("save-file.json", data)
     end)
-    
     if not success then
         warn("Failed to save settings: " .. tostring(err))
     end
@@ -30,11 +29,9 @@ function Settings:LoadSettings()
         self:Save()
         return
     end
-    
     local success: boolean, data: any = pcall(function()
         return HttpService:JSONDecode(readfile("save-file.json"))
     end)
-    
     if success and data then
         for key: string, value: any in pairs(data) do
             self.Data[key] = value
