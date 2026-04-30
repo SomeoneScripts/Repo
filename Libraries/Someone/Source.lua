@@ -7,7 +7,7 @@ local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 
 local Someone = {
-	Icons = loadstring(readfile("Projects/Library/Someone/Icons.lua"))(),
+	Icons = loadstring(game:HttpGet("https://raw.githubusercontent.com/SomeoneScripts/Repo/refs/heads/main/Libraries/Someone/Icons.lua"))(),
 }
 
 function Someone:ResolveConfigs(Options)

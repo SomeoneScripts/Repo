@@ -1,4 +1,4 @@
-local Library = loadstring(readfile("Projects/Library/Someone/Source.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/SomeoneScripts/Repo/refs/heads/main/Libraries/Someone/Source.lua"))()
 
 local Window = Library:AddWindow({
 	Title = "Main Window",
