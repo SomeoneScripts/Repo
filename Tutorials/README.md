@@ -18,3 +18,11 @@ A tutorial on how to transform links (images or audio) into valid asset IDs with
 
 **Notes:**
 * Developed based on the [Delta](https://delta-executor.com/) executor and may not function correctly on different applications.
+
+---
+
+### [Translate System](https://github.com/SomeoneScripts/Repo/blob/main/Tutorials/translate.lua)
+A tutorial on how to implement a translation system using text processing.
+
+**Notes:**
+* Developed based on the [Delta](https://delta-executor.com/) executor and may not function correctly on different applications.
