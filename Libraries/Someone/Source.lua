@@ -120,7 +120,7 @@ function Someone:AddWindow(Configs)
 		local TTitle = Configs.title or Configs.name or "Tab"
 		local TIcon = Someone:GetIcon(Configs.icon or "")
 		
-		local TabButton = New("TextButton", {BackgroundColor3 = Color3.fromRGB(35, 35, 35), BorderSizePixel = 0, ClipsDescendants = true, Name = ("Tab Button %d [ %s ]"):format(Window:GetNextTab(), TTitle), RichText = true, Size = UDim2.new(1, 0, 0.1, 0), Text = "", TextColor3 = Color3.fromRGB(255, 255, 255), Parent = TabsFrame})
+		local TabButton = New("TextButton", {BackgroundColor3 = Color3.fromRGB(35, 35, 35), BorderSizePixel = 0, ClipsDescendants = true, Name = ("Tab Button [ %s ]"):format(TTitle), RichText = true, Size = UDim2.new(1, 0, 0.1, 0), Text = "", TextColor3 = Color3.fromRGB(255, 255, 255), LayoutOrder = Window:GetNextTab(), Parent = TabsFrame})
 		local TabIcon = New("ImageLabel", {BackgroundTransparency = 1, BorderSizePixel = 0, Image = TIcon, Name = "Tab Icon", Position = UDim2.new(0, 13, 0, 7), Size = UDim2.new(0, 16, 0, 16), Parent = TabButton})
 		local TabTitle = New("TextLabel", {BackgroundColor3 = Color3.fromRGB(255, 255, 255), BackgroundTransparency = 1, BorderSizePixel = 0, ClipsDescendants = true, Font = Enum.Font.GothamBold, FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal), Name = "Tab Title", Position = UDim2.new(0, 34, 0, 7), RichText = true, Size = UDim2.new(0, 50, 0, 16), Text = TTitle, TextColor3 = Color3.fromRGB(255, 255, 255), TextSize = 10, TextXAlignment = Enum.TextXAlignment.Left, Parent = TabButton})
 		New("UICorner", {CornerRadius = UDim.new(0, 4), Parent = TabButton})
