@@ -1,0 +1,28 @@
+return {
+	Fruits = {
+		["rbxassetid://15123659214"] = {Name = "Quake Fruit", Image = "rbxassetid://136765989753584", Rarity = "Legendary"},
+		["rbxassetid://15123606541"] = {Name = "Buddha Fruit", Image = "rbxassetid://99168481648562", Rarity = "Legendary"},
+		["rbxassetid://15123643097"] = {Name = "Love Fruit", Image = "rbxassetid://93996455419183", Rarity = "Legendary"},
+		["rbxassetid://15123681598"] = {Name = "Spider Fruit", Image = "rbxassetid://131967190012072", Rarity = "Legendary"},
+		["rbxassetid://116828771482820"] = {Name = "Creation Fruit", Image = "rbxassetid://116575631037600", Rarity = "Legendary"},
+		["rbxassetid://15123679712"] = {Name = "Sound Fruit", Image = "rbxassetid://114098174367759", Rarity = "Legendary"},
+		["rbxassetid://15123654553"] = {Name = "Phoenix Fruit", Image = "rbxassetid://106988656246811", Rarity = "Legendary"},
+		["rbxassetid://15123656798"] = {Name = "Portal Fruit", Image = "rbxassetid://94632418000932", Rarity = "Legendary"},
+		["rbxassetid://15123670514"] = {Name = "Rumble Fruit", Image = "rbxassetid://112807922264832", Rarity = "Legendary"},
+		["rbxassetid://15123652069"] = {Name = "Pain Fruit", Image = "rbxassetid://72125923104449", Rarity = "Legendary"},
+		["rbxassetid://15123587371"] = {Name = "Blizzard Fruit", Image = "rbxassetid://136766547178278", Rarity = "Legendary"},
+		["rbxassetid://15123633312"] = {Name = "Gravity Fruit", Image = "rbxassetid://84292144182069", Rarity = "Mythical"},
+		["rbxassetid://15123648309"] = {Name = "Mammoth Fruit", Image = "rbxassetid://117344163367778", Rarity = "Mythical"},
+		["rbxassetid://15694681122"] = {Name = "T-Rex Fruit", Image = "rbxassetid://111080443643455", Rarity = "Mythical"},
+		["rbxassetid://15123624401"] = {Name = "Dough Fruit", Image = "rbxassetid://108984363494229", Rarity = "Mythical"},
+		["rbxassetid://15123675904"] = {Name = "Shadow Fruit", Image = "rbxassetid://117499868462830", Rarity = "Mythical"},
+		["rbxassetid://10773719142"] = {Name = "Venom Fruit", Image = "rbxassetid://97423516356340", Rarity = "Mythical"},
+		["rbxassetid://15123616275"] = {Name = "Control Fruit", Image = "rbxassetid://96155264810651", Rarity = "Mythical"},
+		["rbxassetid://118054805452821"] = {Name = "Gas Fruit", Image = "rbxassetid://99827714105845", Rarity = "Mythical"},
+		["rbxassetid://11911905519"] = {Name = "Spirit Fruit", Image = "rbxassetid://74999669338772", Rarity = "Mythical"},
+		["rbxassetid://703949232107"] = {Name = "Tiger Fruit", Image = "rbxassetid://135188150527869", Rarity = "Mythical"},
+		["rbxassetid://115276580506154"] = {Name = "Yeti Fruit", Rarity = "Mythical"},
+		["rbxassetid://15487764876"] = {Name = "Kitsune Fruit", Rarity = "Mythical"},
+		["rbxassetid://95749033139458"] = {Name = "Dragon Fruit", Rarity = "Mythical"},
+	}
+}
