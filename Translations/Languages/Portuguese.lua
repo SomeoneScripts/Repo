@@ -1,4 +1,4 @@
-{
+return {
 	["994732206"] = {
 		["Farm"] = "Farmar",
 		["Items/Quests"] = "Itens/Miss\u{f5}es",
