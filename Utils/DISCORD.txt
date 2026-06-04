@@ -1,6 +1,6 @@
 return {
- Title = "",
- Description = "",
+ Title = "Astral Hub",
+ Description = "Join our community and don't miss any updates! Participate in giveaways, ask questions, and make friends.",
  Logo = "rbxassetid://",
- Invite = "",
+ Invite = "https://discord.gg/RhQa6kZu9A",
 }
