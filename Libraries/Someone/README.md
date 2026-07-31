@@ -1,3 +1,0 @@
-# Someone's Library
----
-More resources coming soon...
