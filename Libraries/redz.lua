@@ -2605,107 +2605,131 @@ function redzlib:MakeWindow(Configs)
 			return TextBox
 		end
 		function Tab:AddDiscordInvite(InviteLink)
-			local Title, Description, Logo, Data
-			if InviteLink ~= nil then
-			 Data = game:HttpGet(`https://discord.com/api/invites/{InviteLink}`)
-			end
-			if Data ~= nil then
-			 Data = HttpService:JSONDecode(Data)
-			end
-			Title = Data.profile.name
-			Description = Data.profile.description
-			Logo = `https://cdn.discordapp.com/icons/{Data.profile.id}/{Data.profile.icon_hash}.png`
-			writefile("dsc.png", game:HttpGet(Logo))
-			Logo = getcustomasset("dsc.png")
-			delfile("dsc.png")
-			local InviteHolder = Create("Frame", Container, {
-				Size = UDim2.new(1, 0, 0, 80),
-				Name = "Option",
-				BackgroundTransparency = 1
-			})
-			
-			local InviteLabel = Create("TextLabel", InviteHolder, {
-				Size = UDim2.new(1, 0, 0, 15),
-				Position = UDim2.new(0, 5),
-				TextColor3 = Color3.fromRGB(40, 150, 255),
-				Font = Enum.Font.GothamBold,
-				TextXAlignment = "Left",
-				BackgroundTransparency = 1,
-				TextSize = 10,
-				Text = Invite
-			})
-			
-			local FrameHolder = InsertTheme(Create("Frame", InviteHolder, {
-				Size = UDim2.new(1, 0, 0, 65),
-				AnchorPoint = Vector2.new(0, 1),
-				Position = UDim2.new(0, 0, 1),
-				BackgroundColor3 = Theme["Color Hub 2"]
-			}), "Frame")Make("Corner", FrameHolder)
-			
-			local ImageLabel = Create("ImageLabel", FrameHolder, {
-				Size = UDim2.new(0, 30, 0, 30),
-				Position = UDim2.new(0, 7, 0, 7),
-				Image = Logo,
-				BackgroundTransparency = 1
-			})Make("Corner", ImageLabel, UDim.new(0, 4))Make("Stroke", ImageLabel)
-			
-			local LTitle = InsertTheme(Create("TextLabel", FrameHolder, {
-				Size = UDim2.new(1, -52, 0, 15),
-				Position = UDim2.new(0, 44, 0, 7),
-				Font = Enum.Font.GothamBold,
-				TextColor3 = Theme["Color Text"],
-				TextXAlignment = "Left",
-				BackgroundTransparency = 1,
-				TextSize = 10,
-				Text = Title
-			}), "Text")
-			
-			local LDesc = InsertTheme(Create("TextLabel", FrameHolder, {
-				Size = UDim2.new(1, -52, 0, 0),
-				Position = UDim2.new(0, 44, 0, 22),
-				TextWrapped = "Y",
-				AutomaticSize = "Y",
-				Font = Enum.Font.Gotham,
-				TextColor3 = Theme["Color Dark Text"],
-				TextXAlignment = "Left",
-				BackgroundTransparency = 1,
-				TextSize = 8,
-				Text = Description
-			}), "DarkText")
-			
-			local JoinButton = Create("TextButton", FrameHolder, {
-				Size = UDim2.new(1, -14, 0, 16),
-				AnchorPoint = Vector2.new(0.5, 1),
-				Position = UDim2.new(0.5, 0, 1, -7),
-				Text = "Join",
-				Font = Enum.Font.GothamBold,
-				TextSize = 12,
-				TextColor3 = Color3.fromRGB(220, 220, 220),
-				BackgroundColor3 = Color3.fromRGB(50, 150, 50)
-			})Make("Corner", JoinButton, UDim.new(0, 5))
-			
-			local ClickDelay
-			JoinButton.Activated:Connect(function()
-				setclipboard(Invite)
-				if ClickDelay then return end
-				
-				ClickDelay = true
-				SetProps(JoinButton, {
-					Text = "Copied to Clipboard",
-					BackgroundColor3 = Color3.fromRGB(100, 100, 100),
-					TextColor3 = Color3.fromRGB(150, 150, 150)
-				})task.wait(5)
-				SetProps(JoinButton, {
-					Text = "Join",
-					BackgroundColor3 = Color3.fromRGB(50, 150, 50),
-					TextColor3 = Color3.fromRGB(220, 220, 220)
-				})ClickDelay = false
-			end)
-			
-			local DiscordInvite = {}
-			function DiscordInvite:Destroy() InviteHolder:Destroy() end
-			function DiscordInvite:Visible(...) Funcs:ToggleVisible(InviteHolder, ...) end
-			return DiscordInvite
+		    local InviteHolder = Create("Frame", Container, {
+		        Size = UDim2.new(1, 0, 0, 80),
+		        Name = "Option",
+		        BackgroundTransparency = 1
+		    })
+		    local InviteLabel = Create("TextLabel", InviteHolder, {
+		        Size = UDim2.new(1, 0, 0, 15),
+		        Position = UDim2.new(0, 5),
+		        TextColor3 = Color3.fromRGB(40, 150, 255),
+		        Font = Enum.Font.GothamBold,
+		        TextXAlignment = "Left",
+		        BackgroundTransparency = 1,
+		        TextSize = 10,
+		        Text = InviteLink and `https://discord.gg/{InviteLink}` or ""
+		    })
+		    local FrameHolder = InsertTheme(Create("Frame", InviteHolder, {
+		        Size = UDim2.new(1, 0, 0, 65),
+		        AnchorPoint = Vector2.new(0, 1),
+		        Position = UDim2.new(0, 0, 1),
+		        BackgroundColor3 = Theme["Color Hub 2"]
+		    }), "Frame")
+		    Make("Corner", FrameHolder)
+		    local ImageLabel = Create("ImageLabel", FrameHolder, {
+		        Size = UDim2.new(0, 30, 0, 30),
+		        Position = UDim2.new(0, 7, 0, 7),
+		        Image = "",
+		        BackgroundTransparency = 1
+		    })
+		    Make("Corner", ImageLabel, UDim.new(0, 4))
+		    Make("Stroke", ImageLabel)
+		    local LTitle = InsertTheme(Create("TextLabel", FrameHolder, {
+		        Size = UDim2.new(1, -52, 0, 15),
+		        Position = UDim2.new(0, 44, 0, 7),
+		        Font = Enum.Font.GothamBold,
+		        TextColor3 = Theme["Color Text"],
+		        TextXAlignment = "Left",
+		        BackgroundTransparency = 1,
+		        TextSize = 10,
+		        Text = ""
+		    }), "Text")
+		    local LDesc = InsertTheme(Create("TextLabel", FrameHolder, {
+		        Size = UDim2.new(1, -52, 0, 0),
+		        Position = UDim2.new(0, 44, 0, 22),
+		        TextWrapped = "Y",
+		        AutomaticSize = "Y",
+		        Font = Enum.Font.Gotham,
+		        TextColor3 = Theme["Color Dark Text"],
+		        TextXAlignment = "Left",
+		        BackgroundTransparency = 1,
+		        TextSize = 8,
+		        Text = ""
+		    }), "DarkText")
+		    local JoinButton = Create("TextButton", FrameHolder, {
+		        Size = UDim2.new(1, -14, 0, 16),
+		        AnchorPoint = Vector2.new(0.5, 1),
+		        Position = UDim2.new(0.5, 0, 1, -7),
+		        Text = "Join",
+		        Font = Enum.Font.GothamBold,
+		        TextSize = 12,
+		        TextColor3 = Color3.fromRGB(220, 220, 220),
+		        BackgroundColor3 = Color3.fromRGB(50, 150, 50)
+		    })
+		    Make("Corner", JoinButton, UDim.new(0, 5))
+		    task.spawn(function()
+		        if not InviteLink then return end
+		        local cache = {}
+		        local update = true
+		        if isfile(".data") and isfile(".dsc") then
+		            local ok, parsed = pcall(function()
+		                return HttpService:JSONDecode(readfile(".data"))
+		            end)
+		            if ok and parsed and parsed.last then
+		                if (os.time() - parsed.last) < 86400 then
+		                    update = false
+		                    cache = parsed
+		                end
+		            end
+		        end
+		        if update then
+		            local res = game:HttpGet(`https://discord.com/api/invites/{InviteLink}`)
+		            if res then
+		                local data = HttpService:JSONDecode(res)
+		                cache = {
+		                    name = data.guild and data.guild.name or data.profile and data.profile.name or "",
+		                    desc = data.guild and data.guild.description or data.profile and data.profile.description or "",
+		                    id = data.guild and data.guild.id or data.profile and data.profile.id,
+		                    icon = data.guild and data.guild.icon or data.profile and data.profile.icon_hash,
+		                    last = os.time()
+		                }
+		                writefile(".data", HttpService:JSONEncode(cache))
+		                if cache.id and cache.icon then
+		                    writefile(".dsc", game:HttpGet(`https://cdn.discordapp.com/icons/{cache.id}/{cache.icon}.png`))
+		                end
+		            end
+		        end
+		        if cache.name then
+		            LTitle.Text = cache.name
+		            LDesc.Text = cache.desc
+		            if isfile(".dsc") then
+		                ImageLabel.Image = getcustomasset(".dsc")
+		            end
+		        end
+		    end)
+		    local ClickDelay
+		    JoinButton.Activated:Connect(function()
+		        setclipboard(InviteLink and `https://discord.gg/{InviteLink}` or "")
+		        if ClickDelay then return end
+		        ClickDelay = true
+		        SetProps(JoinButton, {
+		            Text = "Copied to Clipboard",
+		            BackgroundColor3 = Color3.fromRGB(100, 100, 100),
+		            TextColor3 = Color3.fromRGB(150, 150, 150)
+		        })
+		        task.wait(5)
+		        SetProps(JoinButton, {
+		            Text = "Join",
+		            BackgroundColor3 = Color3.fromRGB(50, 150, 50),
+		            TextColor3 = Color3.fromRGB(220, 220, 220)
+		        })
+		        ClickDelay = false
+		    end)
+		    local DiscordInvite = {}
+		    function DiscordInvite:Destroy() InviteHolder:Destroy() end
+		    function DiscordInvite:Visible(...) Funcs:ToggleVisible(InviteHolder, ...) end
+		    return DiscordInvite
 		end
 		return Tab
 	end
