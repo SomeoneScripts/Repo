@@ -1,2 +1,2 @@
 # Libraries
-Libraries for Hubs
+Libraries
