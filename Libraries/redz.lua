@@ -2670,11 +2670,13 @@ function redzlib:MakeWindow(Configs)
 		    Make("Corner", JoinButton, UDim.new(0, 5))
 		    task.spawn(function()
 		        if not InviteLink then return end
+		        local dataFile = `.data_{InviteLink}`
+		        local dscFile = `.dsc_{InviteLink}`
 		        local cache = {}
 		        local update = true
-		        if isfile(".data") and isfile(".dsc") then
+		        if isfile(dataFile) and isfile(dscFile) then
 		            local ok, parsed = pcall(function()
-		                return HttpService:JSONDecode(readfile(".data"))
+		                return HttpService:JSONDecode(readfile(dataFile))
 		            end)
 		            if ok and parsed and parsed.last then
 		                if (os.time() - parsed.last) < 86400 then
@@ -2694,17 +2696,17 @@ function redzlib:MakeWindow(Configs)
 		                    icon = data.guild and data.guild.icon or data.profile and data.profile.icon_hash,
 		                    last = os.time()
 		                }
-		                writefile(".data", HttpService:JSONEncode(cache))
+		                writefile(dataFile, HttpService:JSONEncode(cache))
 		                if cache.id and cache.icon then
-		                    writefile(".dsc", game:HttpGet(`https://cdn.discordapp.com/icons/{cache.id}/{cache.icon}.png`))
+		                    writefile(dscFile, game:HttpGet(`https://cdn.discordapp.com/icons/{cache.id}/{cache.icon}.png`))
 		                end
 		            end
 		        end
 		        if cache.name then
 		            LTitle.Text = cache.name
 		            LDesc.Text = cache.desc
-		            if isfile(".dsc") then
-		                ImageLabel.Image = getcustomasset(".dsc")
+		            if isfile(dscFile) then
+		                ImageLabel.Image = getcustomasset(dscFile)
 		            end
 		        end
 		    end)
