@@ -206,7 +206,6 @@ do
  end)
  UserInputService.InputEnded:Connect(function(input)
   if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then dragging = false end
- me
  end)
  local initPct = (CONFIG.DefaultSpeed - CONFIG.MinSpeed) / (CONFIG.MaxSpeed - CONFIG.MinSpeed)
  SliderFill.Size = UDim2.new(initPct, 0, 1, 0)
@@ -293,7 +292,6 @@ local function processSeed(seed)
  if State.Active then
   StatusLabel.Text = "Procurando..."
   StatusLabel.TextColor3 = CONFIG.GreenColor
- me
  end
 end
 local function startFarming()
@@ -325,6 +323,6 @@ ToggleBtn.MouseButton1Click:Connect(function()
   ToggleBtn.Text = "ATIVAR"
   tween(ToggleBtn, {BackgroundColor3 = CONFIG.PanelColor}, 0.2)
   stopFarming()
- me
  end
 end)
+--[[YOOOOOOO]]--
